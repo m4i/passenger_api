@@ -5,7 +5,7 @@ require "passenger_api/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "passenger_api"
-  spec.version       = PassengerApi::VERSION
+  spec.version       = PassengerAPI::VERSION
   spec.authors       = ["Masaki Takeuchi"]
   spec.email         = ["m.ishihara@gmail.com"]
 

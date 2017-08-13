@@ -1,8 +1,8 @@
 require "test_helper"
 
-class PassengerApiTest < Minitest::Test
+class PassengerAPITest < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::PassengerApi::VERSION
+    refute_nil ::PassengerAPI::VERSION
   end
 
   def test_it_does_something_useful

@@ -1,5 +1,5 @@
 require "passenger_api/version"
 
-module PassengerApi
+module PassengerAPI
   # Your code goes here...
 end
