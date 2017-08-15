@@ -1,0 +1,62 @@
+version: "3.3"
+services:
+  ruby: &service
+    build: &build
+      context: ..
+      dockerfile: test/Dockerfile
+      args:
+        from: ruby
+    volumes:
+      - bundle:/usr/local/bundle
+
+  ruby24:
+    <<: *service
+    build:
+      <<: *build
+      args:
+        from: ruby:2.4
+
+  ruby23:
+    <<: *service
+    build:
+      <<: *build
+      args:
+        from: ruby:2.3
+
+  ruby22:
+    <<: *service
+    build:
+      <<: *build
+      args:
+        from: ruby:2.2
+
+  ruby21:
+    <<: *service
+    build:
+      <<: *build
+      args:
+        from: ruby:2.1
+
+  ruby20:
+    <<: *service
+    build:
+      <<: *build
+      args:
+        from: ruby:2.0
+
+  ruby19:
+    <<: *service
+    build:
+      <<: *build
+      args:
+        from: ruby:1.9
+
+  ruby18:
+    <<: *service
+    build:
+      <<: *build
+      args:
+        from: m4i0/ruby:1.8.7
+
+volumes:
+  bundle:
