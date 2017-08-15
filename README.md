@@ -1,8 +1,6 @@
 # PassengerAPI
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/passenger_api`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+PassengerAPI is a Rack application to access Passenger internal APIs.
 
 ## Installation
 
@@ -12,17 +10,34 @@ Add this line to your application's Gemfile:
 gem 'passenger_api'
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install passenger_api
-
 ## Usage
 
-TODO: Write usage instructions here
+Add this line to your application's config.ru:
+
+```ruby
+map('/passenger') { run PassengerAPI.new }
+```
+
+Then, access API.
+
+```
+$ passenger start -d
+$ curl localhost:3000/passenger/pool.txt
+----------- General information -----------
+Max pool size : 6
+App groups    : 1
+Processes     : 1
+Requests in top-level queue : 0
+
+----------- Application groups -----------
+/app/public (development):
+  App root: /app
+  Requests in queue: 0
+  * PID: 25915   Sessions: 1       Processed: 3       Uptime: 30s
+    CPU: 0%      Memory  : 7M      Last used: 0s ago
+```
+
+Passenger internal APIs are undocumented. If you want to know about them, please see https://github.com/phusion/passenger/issues/1407.
 
 ## Development
 
