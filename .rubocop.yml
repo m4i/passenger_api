@@ -1,0 +1,63 @@
+AllCops:
+  EnabledByDefault: true
+  TargetRubyVersion: 2.4
+
+### customize
+
+Layout/MultilineAssignmentLayout:
+  EnforcedStyle: same_line
+
+Metrics/LineLength:
+  IgnoredPatterns:
+    - '^ +spec\.(summary|description) +='
+
+Metrics/ParameterLists:
+  CountKeywordArgs: false
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+Style/LambdaCall:
+  EnforcedStyle: braces
+
+Style/HashSyntax:
+  Exclude:
+    - "**/Rakefile"
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
+
+### disabled
+
+Lint/UnneededSplatExpansion:
+  Enabled: false
+
+Style/Copyright:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/DocumentationMethod:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: false
+
+Style/MethodCalledOnDoEndBlock:
+  Enabled: false
+
+Style/MissingElse:
+  Enabled: false
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/VariableInterpolation:
+  Enabled: false
