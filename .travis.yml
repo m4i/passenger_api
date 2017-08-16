@@ -1,5 +1,30 @@
+dist: trusty
 sudo: false
 language: ruby
+
 rvm:
-  - 2.4.1
-before_install: gem install bundler -v 1.15.3
+  - 2
+  - 1.8
+
+install:
+  - bundle install --jobs=3 --retry=3
+  - appraisal install
+
+before_script:
+  - |
+    if [ "$TRAVIS_PULL_REQUEST" = false -a "$TRAVIS_RUBY_VERSION" = 2 ]; then
+      curl -fL -o cc-test-reporter \
+        https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+      chmod +x cc-test-reporter
+    fi
+
+script:
+  - if [ -e cc-test-reporter ]; then export COVERAGE=true; fi
+  - appraisal rake
+  - if [ "$TRAVIS_RUBY_VERSION" = 2 ]; then rubocop -DES; fi
+
+after_script:
+  - |
+    if [ -e cc-test-reporter ]; then
+      ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+    fi

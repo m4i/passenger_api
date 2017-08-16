@@ -2,6 +2,10 @@
 
 PassengerAPI is a Rack application to access Passenger internal APIs.
 
+[![Build Status](https://travis-ci.org/m4i/passenger_api.svg?branch=master)](https://travis-ci.org/m4i/passenger_api)
+[![Test Coverage](https://codeclimate.com/github/m4i/passenger_api/badges/coverage.svg)](https://codeclimate.com/github/m4i/passenger_api/coverage)
+[![Code Climate](https://codeclimate.com/github/m4i/passenger_api/badges/gpa.svg)](https://codeclimate.com/github/m4i/passenger_api)
+
 ## Installation
 
 Add this line to your application's Gemfile:
