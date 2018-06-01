@@ -42,10 +42,3 @@ class PassengerHelper
     retry
   end
 end
-
-# for Ruby 1.8.7
-unless respond_to?(:spawn, true)
-  def spawn(*args)
-    fork { exec(*args) }
-  end
-end

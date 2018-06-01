@@ -4,7 +4,7 @@ language: ruby
 
 rvm:
   - 2
-  - 1.8
+  - 2.2
 
 install:
   - bundle install --jobs=3 --retry=3

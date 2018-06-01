@@ -28,11 +28,7 @@ class PassengerAPI
   end
 
   def to_rack_response(res)
-    # for Ruby 1.8.7
-    # headers = res.each_capitalized.to_h
-    headers = {}
-    res.each_capitalized { |n, v| headers[n] = v }
-
+    headers = res.each_capitalized.to_h
     [res.code, headers, [res.body]]
   end
 end
