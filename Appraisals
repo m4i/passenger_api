@@ -5,7 +5,7 @@ appraise 'passenger-5.0.10' do
 end
 
 appraise 'passenger-5.0' do
-  gem 'passenger', '~> 5.0.10'
+  gem 'passenger', '~> 5.0.11'
 end
 
 appraise 'passenger-5.1.0' do
@@ -13,5 +13,5 @@ appraise 'passenger-5.1.0' do
 end
 
 appraise 'passenger-5.1' do
-  gem 'passenger', '~> 5.1.0'
+  gem 'passenger', '~> 5.1.1'
 end
