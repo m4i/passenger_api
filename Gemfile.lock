@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     passenger_api (0.1.0)
-      passenger (>= 5.0.10)
+      passenger (>= 5.0.22)
       rack
 
 GEM
