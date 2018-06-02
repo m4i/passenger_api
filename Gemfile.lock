@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    passenger_api (0.1.0)
+    passenger_api (0.2.0)
       passenger (>= 5.0.22)
       rack
 
