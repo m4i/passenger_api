@@ -16,7 +16,12 @@ PhusionPassenger.require_passenger_lib('admin_tools/instance_registry')
 class PassengerAPI
   def call(env)
     rack_request = Rack::Request.new(env)
-    proxy_api(rack_request)
+    case rack_request.path
+    when '/health'
+      [200, { 'Content-Type' => 'text/plain' }, ["OK\n"]]
+    else
+      proxy_api(rack_request)
+    end
   end
 
   private

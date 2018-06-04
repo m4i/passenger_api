@@ -25,6 +25,13 @@ class PassengerAPITest < Minitest::Test
     refute_nil ::PassengerAPI::VERSION
   end
 
+  def test_health
+    get '/health'
+    assert last_response.ok?
+    assert_equal 'text/plain', last_response.content_type
+    assert_equal "OK\n", last_response.body
+  end
+
   def test_ping_json
     get '/ping.json'
     assert_response(last_response).each do |response|
