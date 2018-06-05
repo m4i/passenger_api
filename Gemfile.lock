@@ -3,6 +3,7 @@ PATH
   specs:
     passenger_api (0.1.0)
       passenger (>= 5.0.10)
+      rack
 
 GEM
   remote: https://rubygems.org/

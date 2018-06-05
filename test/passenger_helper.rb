@@ -1,21 +1,30 @@
 # frozen_string_literal: true
 
+require 'fileutils'
 require 'socket'
 require 'timeout'
 
 class PassengerHelper
   class << self
-    def start
-      new.tap(&:start)
+    def start(instance_registry_dir = '/tmp')
+      new(instance_registry_dir).tap(&:start)
     end
   end
 
-  def initialize
-    @port = unused_port
+  def initialize(instance_registry_dir)
+    @instance_registry_dir = instance_registry_dir.gsub('*') { rand.to_s[2, 8] }
   end
 
   def start
-    spawn(*%W[passenger start --port #@port --daemonize --log-file /dev/null])
+    FileUtils.mkdir_p(@instance_registry_dir)
+    @port ||= unused_port
+    spawn(*%W[
+            passenger start
+            --port #@port
+            --instance-registry-dir #@instance_registry_dir
+            --daemonize
+            --log-file /dev/null
+          ])
     Timeout.timeout(60) { wait_for_started }
   end
 
