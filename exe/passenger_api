@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+rackup = File.expand_path('../config.ru', __dir__)
+ARGV.unshift(*%W[start --instance-registry-dir /var/run --rackup #{rackup}])
+load Gem.bin_path('passenger', 'passenger')
